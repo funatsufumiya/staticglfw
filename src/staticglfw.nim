@@ -531,6 +531,12 @@ when defined(windows):
   proc getWin32Window*(window: Window): cint {.cdecl, importc: "glfwGetWin32Window".}
 when defined(macosx):
   proc getCocoaWindow*(window: Window): clong {.cdecl, importc: "glfwGetCocoaWindow".}
+# X11 and Wayland
+when defined(linux):
+  proc getX11Window*(window: Window): cint {.cdecl, importc: "glfwGetX11Window".}
+  proc getX11Display*(): cint {.cdecl, importc: "glfwGetX11Display".}
+  proc getWaylandWWindow*(window: Window): cint {.cdecl, importc: "glfwGetWaylandWindow".}
+  proc getWaylandDisplay*(): cint {.cdecl, importc: "glfwGetWaylandDisplay".}
 
 
 # My Extra functions:
